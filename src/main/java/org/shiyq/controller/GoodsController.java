@@ -208,8 +208,8 @@ public class GoodsController {
     /**
      * 进入首页
      */
-    @RequestMapping("/{sort}")
-    public String toGoodsJsp(@Nullable @PathVariable String sort, Model model){
+    @RequestMapping("/all/{sort}")
+    public String toGoodsJsp(@PathVariable String sort, Model model){
         return showAllGoodsBySortAndPageNum(sort, 1, model);
     }
 
@@ -221,7 +221,7 @@ public class GoodsController {
      * @return  返回页面
      */
     @RequestMapping("/all/{sort}/{pageNum}")
-    public String showAllGoodsBySortAndPageNum(@Nullable @PathVariable String sort,
+    public String showAllGoodsBySortAndPageNum(@PathVariable String sort,
                                                @PathVariable int pageNum,
                                                Model model){
         Page<Goods> page = PageHelper.startPage(pageNum, PAGE_SIZE);

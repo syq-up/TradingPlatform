@@ -33,18 +33,18 @@
 				<div class="content-item-body">
 					<div class="content-item-body-item1 fl">
 						<div class="content-item-body-item1-img fl" style="overflow: hidden;">
-							<a href="/TradingPlatform/goods/${goodsItem.goodsId}"><img width="80" src="upload/${goodsItem.goodsImg}"></a>
+							<a href="/TradingPlatform/goods/single/${goodsItem.goodsId}"><img width="80" src="upload/${goodsItem.goodsImg}"></a>
 						</div>
 						<div class="content-item-body-item1-goodsname fl">
-							<a href="/TradingPlatform/goods/${goodsItem.goodsId}">${goodsItem.goodsName}</a>
+							<a href="/TradingPlatform/goods/single/${goodsItem.goodsId}">${goodsItem.goodsName}</a>
 						</div>
 						<div class="content-item-body-item1-mastername fl">
 							<a href="#">${sessionScope.user.userId}</a>
 						</div>
 					</div>
 					<div class="content-item-body-item2 fr">
-						<a href="/TradingPlatform/goods/${goodsItem.goodsId}"><img width="26" src="images/edit.png"></a>
-						<a href="/TradingPlatform/goods/${goodsItem.goodsId}"><img width="26" src="images/delete.png"></a>
+						<a href="/TradingPlatform/goods/single/${goodsItem.goodsId}"><img width="26" src="images/edit.png"></a>
+						<a href="/TradingPlatform/goods/single/${goodsItem.goodsId}"><img width="26" src="images/delete.png"></a>
 					</div>
 					<div class="content-item-body-item2 fr">
 						<c:choose>

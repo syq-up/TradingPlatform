@@ -19,7 +19,7 @@
 			</div>
 			<div class="head-show-single-right fl">
 				<div class="head-show-single-right-item fl">
-					<a href="/TradingPlatform/goods/recent/1"><span class="right">首页</span></a>
+					<a href="/TradingPlatform/goods/all/recent/1"><span class="right">首页</span></a>
 				</div>
 				<div class="head-show-single-right-jianGe fl">
 					<span class="right">|</span>

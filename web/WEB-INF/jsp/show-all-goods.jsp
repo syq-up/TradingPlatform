@@ -20,7 +20,7 @@
 				<div class="head-show-all_top_left"><span class="left">二手交易平台</span></div>
 				<div class="head-show-all_top_right">
 					<div class="head-show-all_top_right_item fl">
-						<a href="/TradingPlatform/goods/recent/1"><span class="right1">首页</span></a>
+						<a href="/TradingPlatform/goods/all/recent/1"><span class="right1">首页</span></a>
 					</div>
 					<div class="head-show-all_top_right_item fl">
 						<a href="/TradingPlatform/goods/me-goods/1"><span class="right2">我的商品</span></a>
@@ -124,47 +124,47 @@
 	<%--导航栏--%>
 	<div class="navi">
 		<div id="navi-recent" class="navi-item<c:if test="${sort=='recent'}">-i</c:if> fl" class="navi-item fl" >
-			<a href="/TradingPlatform/goods/recent/1"><span class="name<c:if test="${sort=='recent'}">-i</c:if>">最近</span></a>
+			<a href="/TradingPlatform/goods/all/recent/1"><span class="name<c:if test="${sort=='recent'}">-i</c:if>">最近</span></a>
 			<c:if test="${sort=='recent'}"><div class="navi-item-line"></div></c:if>
 		</div>
 		<div id="navi-phone" class="navi-item<c:if test="${sort=='phone'}">-i</c:if> fl">
-			<a href="/TradingPlatform/goods/phone/1"><span class="name<c:if test="${sort=='phone'}">-i</c:if>">手机</span></a>
+			<a href="/TradingPlatform/goods/all/phone/1"><span class="name<c:if test="${sort=='phone'}">-i</c:if>">手机</span></a>
 			<c:if test="${sort=='phone'}"><div class="navi-item-line"></div></c:if>
 		</div>
 		<div id="navi-digital" class="navi-item<c:if test="${sort=='digital'}">-i</c:if> fl">
-			<a href="/TradingPlatform/goods/digital/1"><span class="name<c:if test="${sort=='digital'}">-i</c:if>">数码</span></a>
+			<a href="/TradingPlatform/goods/all/digital/1"><span class="name<c:if test="${sort=='digital'}">-i</c:if>">数码</span></a>
 			<c:if test="${sort=='digital'}"><div class="navi-item-line"></div></c:if>
 		</div>
 		<div id="navi-ACG" class="navi-item<c:if test="${sort=='ACG'}">-i</c:if> fl">
-			<a href="/TradingPlatform/goods/ACG/1"><span class="name<c:if test="${sort=='ACG'}">-i</c:if>">ACG</span></a>
+			<a href="/TradingPlatform/goods/all/ACG/1"><span class="name<c:if test="${sort=='ACG'}">-i</c:if>">ACG</span></a>
 			<c:if test="${sort=='ACG'}"><div class="navi-item-line"></div></c:if>
 		</div>
 		<div id="navi-clothes" class="navi-item<c:if test="${sort=='clothes'}">-i</c:if> fl">
-			<a href="/TradingPlatform/goods/clothes/1"><span class="name<c:if test="${sort=='clothes'}">-i</c:if>">服装</span></a>
+			<a href="/TradingPlatform/goods/all/clothes/1"><span class="name<c:if test="${sort=='clothes'}">-i</c:if>">服装</span></a>
 			<c:if test="${sort=='clothes'}"><div class="navi-item-line"></div></c:if>
 		</div>
 		<div id="navi-house" class="navi-item<c:if test="${sort=='house'}">-i</c:if> fl">
-			<a href="/TradingPlatform/goods/house/1"><span class="name<c:if test="${sort=='house'}">-i</c:if>">租房</span></a>
+			<a href="/TradingPlatform/goods/all/house/1"><span class="name<c:if test="${sort=='house'}">-i</c:if>">租房</span></a>
 			<c:if test="${sort=='house'}"><div class="navi-item-line"></div></c:if>
 		</div>
 		<div id="navi-makeup" class="navi-item<c:if test="${sort=='makeup'}">-i</c:if> fl">
-			<a href="/TradingPlatform/goods/makeup/1"><span class="name<c:if test="${sort=='makeup'}">-i</c:if>">美妆</span></a>
+			<a href="/TradingPlatform/goods/all/makeup/1"><span class="name<c:if test="${sort=='makeup'}">-i</c:if>">美妆</span></a>
 			<c:if test="${sort=='makeup'}"><div class="navi-item-line"></div></c:if>
 		</div>
 		<div id="navi-sport" class="navi-item<c:if test="${sort=='sport'}">-i</c:if> fl">
-			<a href="/TradingPlatform/goods/sport/1"><span class="name<c:if test="${sort=='sport'}">-i</c:if>">运动</span></a>
+			<a href="/TradingPlatform/goods/all/sport/1"><span class="name<c:if test="${sort=='sport'}">-i</c:if>">运动</span></a>
 			<c:if test="${sort=='sport'}"><div class="navi-item-line"></div></c:if>
 		</div>
 		<div id="navi-game" class="navi-item<c:if test="${sort=='game'}">-i</c:if> fl">
-			<a href="/TradingPlatform/goods/game/1"><span class="name<c:if test="${sort=='game'}">-i</c:if>">游戏</span></a>
+			<a href="/TradingPlatform/goods/all/game/1"><span class="name<c:if test="${sort=='game'}">-i</c:if>">游戏</span></a>
 			<c:if test="${sort=='game'}"><div class="navi-item-line"></div></c:if>
 		</div>
 		<div id="navi-instrument" class="navi-item<c:if test="${sort=='instrument'}">-i</c:if> fl">
-			<a href="/TradingPlatform/goods/instrument/1"><span class="name<c:if test="${sort=='instrument'}">-i</c:if>">乐器</span></a>
+			<a href="/TradingPlatform/goods/all/instrument/1"><span class="name<c:if test="${sort=='instrument'}">-i</c:if>">乐器</span></a>
 			<c:if test="${sort=='instrument'}"><div class="navi-item-line"></div></c:if>
 		</div>
 		<div id="navi-other" class="navi-item<c:if test="${sort=='other'}">-i</c:if> fl">
-			<a href="/TradingPlatform/goods/other/1"><span class="name<c:if test="${sort=='other'}">-i</c:if>">其它</span></a>
+			<a href="/TradingPlatform/goods/all/other/1"><span class="name<c:if test="${sort=='other'}">-i</c:if>">其它</span></a>
 			<c:if test="${sort=='other'}"><div class="navi-item-line"></div></c:if>
 		</div>
 	</div>
