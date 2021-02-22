@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
@@ -142,12 +144,30 @@ public class UserController {
         return "me-info";
     }
 
+    /**
+     * 更新用户详细信息
+     * @param userDetail    新的用户信息
+     * @return  返回
+     */
     @RequestMapping("/userUpdate")
-    public String updateUserInfo(@ModelAttribute UserDetail userDetail){
-        userService.updateUserDetailById(userDetail);
+    public String updateUserInfo(@ModelAttribute UserDetail userDetail,
+                                 @RequestParam("file") CommonsMultipartFile file,
+                                 HttpSession session,
+                                 HttpServletRequest request){
+        // 更新数据库
+        userService.updateUserDetail(userDetail, file, request);
+        // 更新session中的user对象
+        User user = (User) session.getAttribute("user");
+        user.setUserDetail(userService.findUserDetailById(userDetail.getDetailId()));
+        session.setAttribute("user", user);
+        // 返回
         return "redirect:/user/userInfo/"+userDetail.getDetailId();
     }
 
+    /**
+     * 进入用户详情修改页面
+     * @return 返回
+     */
     @RequestMapping("/userModify")
     public String toModifyJsp(){
         return "me-info-modify";

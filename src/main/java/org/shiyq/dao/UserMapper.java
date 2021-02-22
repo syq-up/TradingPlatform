@@ -20,6 +20,12 @@ public interface UserMapper {
     User findUserByUserName(String userName);
 
     /**
+     * 查找用户对象
+     * @param userId 用户id
+     */
+    void findUserByUserId(Integer userId);
+
+    /**
      * 注册用户，添加User对象到数据库
      * @param user：用户对象
      */

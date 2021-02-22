@@ -45,7 +45,7 @@
 				<c:if test="${sessionScope.user != null}">
 					<div class="usercard-info">
 						<div class="usercard-info-left">
-							<img style="width: 60px; height: 60px; border-radius:50%;" src="upload/${sessionScope.user.userDetail.headImg}">
+							<img style="width: 60px; height: 60px; border-radius:50%;" src="upload/userHeadImg/${sessionScope.user.userDetail.headImg}">
 						</div>
 						<% org.shiyq.pojo.User u =(org.shiyq.pojo.User)session.getAttribute("user");
 							int days = (int)(new java.util.Date().getTime() - u.getUserReg().getTime())/1000/3600/24 + 1;
@@ -88,7 +88,7 @@
 				</c:if>
 				<c:if test="${sessionScope.user == null}">
 					<div class="usercard-info" style="padding-top: 30px;">
-						<img style="border-radius:50%; width: 60px; height: 60px; border: 1px solid #000;" src="images/info/headImg2.jpg">
+						<img style="border-radius:50%; width: 60px; height: 60px; border: 1px solid #000;" src="images/info/headImg.jpg">
 					</div>
 					<div class="usercard-list" style="padding: 35px 5px 15px 5px;">
 						<a href="/TradingPlatform/user/login"><button class="button" style="width: 88px; height: 25px; background-color: #ffd84d;">登录</button></a>
@@ -175,7 +175,7 @@
 			<div class="show_item fl">
 				<div class="show_item_img">
 					<a href="/TradingPlatform/goods/single/${goodsItem.goodsId}">
-						<img width="215" src="upload/${goodsItem.goodsImg}"/>
+						<img width="215" src="upload/goodsImg/${goodsItem.goodsImg}/1.jpg"/>
 					</a>
 				</div>
 				<div class="show_item_info">
@@ -192,7 +192,7 @@
 				</div>
 				<div class="show_item_user">
 					<div class="show_item_user_img fl">
-						<img style="width: 20px; height: 20px; border-radius:50%;" src="upload/${goodsItem.userDetail.headImg}">
+						<img style="width: 20px; height: 20px; border-radius:50%;" src="upload/userHeadImg/${goodsItem.userDetail.headImg}">
 					</div>
 					<div class="show_item_user_name fl">
 						<span class="name">${goodsItem.userDetail.nickname}</span>
@@ -213,11 +213,11 @@
 			</c:if>
 			<%-- 上一页 --%>
 			<div class="page-item fl bg-color-f2f2f2">
-				<a href="/TradingPlatform/goods/${sort}/${pageNum-1}"><img alt="上一页" src="images/prevPage.png"></a>
+				<a href="/TradingPlatform/goods/all/${sort}/${pageNum-1}"><img alt="上一页" src="images/prevPage.png"></a>
 			</div>
 			<%-- 首页 --%>
 			<div class="page-item fl <c:if test="${pageNum==1}">bg-color-ffd84d</c:if>">
-				<a href="/TradingPlatform/goods/${sort}/1">1</a>
+				<a href="/TradingPlatform/goods/all/${sort}/1">1</a>
 			</div>
 			<%-- 页数过多时的省略号 --%>
 			<c:if test="${totalPages > 9 && pageNum > 5}">
@@ -230,7 +230,7 @@
 				<c:when test="${totalPages<=9}">
 					<c:forEach var="pagesNum" begin="2" end="${totalPages-1}">
 						<div class="page-item fl <c:if test="${pagesNum==pageNum}">bg-color-ffd84d</c:if>">
-							<a href="/TradingPlatform/goods/${sort}/${pagesNum}">${pagesNum}</a>
+							<a href="/TradingPlatform/goods/all/${sort}/${pagesNum}">${pagesNum}</a>
 						</div>
 					</c:forEach>
 				</c:when>
@@ -239,21 +239,21 @@
 						<c:when test="${pageNum <= 5}">
 							<c:forEach var="pagesNum" begin="2" end="7">
 								<div class="page-item fl <c:if test="${pagesNum==pageNum}">bg-color-ffd84d</c:if>">
-									<a href="/TradingPlatform/goods/${sort}/${pagesNum}">${pagesNum}</a>
+									<a href="/TradingPlatform/goods/all/${sort}/${pagesNum}">${pagesNum}</a>
 								</div>
 							</c:forEach>
 						</c:when>
 						<c:when test="${pageNum >= (totalPages-4)}">
 							<c:forEach var="pagesNum" begin="${totalPages-6}" end="${totalPages-1}">
 								<div class="page-item fl <c:if test="${pagesNum==pageNum}">bg-color-ffd84d</c:if>">
-									<a href="/TradingPlatform/goods/${sort}/${pagesNum}">${pagesNum}</a>
+									<a href="/TradingPlatform/goods/all/${sort}/${pagesNum}">${pagesNum}</a>
 								</div>
 							</c:forEach>
 						</c:when>
 						<c:when test="${pageNum>5 && pageNum < (totalPages-4)}">
 							<c:forEach var="pagesNum" begin="${totalPages-6}" end="${totalPages-1}">
 								<div class="page-item fl <c:if test="${pagesNum==pageNum}">bg-color-ffd84d</c:if>">
-									<a href="/TradingPlatform/goods/${sort}/${pagesNum}">${pagesNum}</a>
+									<a href="/TradingPlatform/goods/all/${sort}/${pagesNum}">${pagesNum}</a>
 								</div>
 							</c:forEach>
 						</c:when>
@@ -269,12 +269,12 @@
 			<%-- 尾页 --%>
 			<c:if test="${totalPages > 1}">
 				<div class="page-item fl <c:if test="${pageNum == totalPages}">bg-color-ffd84d</c:if>">
-					<a href="/TradingPlatform/goods/${sort}/${totalPages}">${totalPages}</a>
+					<a href="/TradingPlatform/goods/all/${sort}/${totalPages}">${totalPages}</a>
 				</div>
 			</c:if>
 			<%-- 下一页 --%>
 			<div class="page-item fl bg-color-f2f2f2">
-				<a href="/TradingPlatform/goods/${sort}/${pageNum+1}"><img alt="下一页" src="images/nextPage.png"/></a>
+				<a href="/TradingPlatform/goods/all/${sort}/${pageNum+1}"><img alt="下一页" src="images/nextPage.png"/></a>
 			</div>
 			<%-- 页数较少时填充 --%>
 			<c:if test="${totalPages < 9}">

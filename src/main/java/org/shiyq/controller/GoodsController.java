@@ -2,11 +2,9 @@ package org.shiyq.controller;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.shiyq.pojo.*;
 import org.shiyq.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,8 +12,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -44,7 +45,7 @@ public class GoodsController {
      */
     @RequestMapping
     public String toJsp(){
-        return "redirect:/goods/recent/1";
+        return "redirect:/goods/all/recent/1";
     }
 
     @RequestMapping("/single/{goodsId}")
@@ -84,9 +85,12 @@ public class GoodsController {
      */
     @RequestMapping("/save")
     public String saveGoods(@ModelAttribute Goods goods,
-                            Model model){
+                            @RequestParam("files") CommonsMultipartFile[] files,
+                            HttpServletRequest request,
+                            Model model)
+            throws IOException {
         goods.setLastEditTime(new java.sql.Timestamp(new Date().getTime()));
-        goodsService.saveGoods(goods);
+        goodsService.saveGoods(goods, files, request);
         model.addAttribute("goods", goods);
         return "show-single";
     }

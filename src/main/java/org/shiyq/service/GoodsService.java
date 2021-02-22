@@ -4,7 +4,9 @@ import org.shiyq.pojo.Goods;
 import org.shiyq.pojo.GoodsCollection;
 import org.shiyq.pojo.GoodsGuestbook;
 import org.shiyq.pojo.UserOrder;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 
@@ -39,7 +41,7 @@ public interface GoodsService {
      * 保存商品
      * @param goods 商品对象
      */
-    void saveGoods(Goods goods);
+    void saveGoods(Goods goods, CommonsMultipartFile[] files, HttpServletRequest request);
 
     /**
      * 查询用户发布的所有商品
@@ -57,10 +59,9 @@ public interface GoodsService {
 
     /**
      * 添加收藏
-     * @param userId    用户id
-     * @param goodsId   商品id
+     * @param hashMap 收藏
      */
-    int saveCollectionByUserIdAndGoodsId(HashMap hashMap);
+    int saveCollectionByUserIdAndGoodsId(HashMap<String, Integer> hashMap);
 
     /**
      * 删除收藏

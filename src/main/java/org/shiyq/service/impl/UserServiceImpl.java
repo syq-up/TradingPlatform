@@ -7,8 +7,12 @@ import org.shiyq.pojo.UserDetail;
 import org.shiyq.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.*;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author shiyq
@@ -32,6 +36,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUserByUserName(String userName) {
         return userMapper.findUserByUserName(userName);
+    }
+
+    /**
+     * 查找用户对象
+     * @param userId 用户id
+     */
+    public void findUserByUserId(Integer userId) {
+        userMapper.findUserByUserId(userId);
     }
 
     /**
@@ -75,7 +87,26 @@ public class UserServiceImpl implements UserService {
      * 更新用户详细信息
      * @param userDetail  用户id
      */
-    public void updateUserDetailById(UserDetail userDetail) {
+    public void updateUserDetail(UserDetail userDetail, CommonsMultipartFile file, HttpServletRequest request) {
+        if (file != null){
+            //上传路径保存设置
+            String headImg = UUID.randomUUID().toString() + ".jpg";
+            String path = request.getServletContext()
+                    .getRealPath("/upload/userHeadImg");
+            try{
+                //通过CommonsMultipartFile的方法直接写文件（注意这个时候）
+                file.transferTo(new File(path + "\\" + headImg));
+                if (!"user-default-headImage.jpg".equals(userDetail.getHeadImg())){
+                    File prevFile = new File(path + "\\" + userDetail.getHeadImg());
+                    prevFile.delete();
+                }
+            } catch (IOException e){
+                e.printStackTrace();
+            }
+            userDetail.setHeadImg(headImg);
+        }else {
+            userDetail.setHeadImg("user-default-headImage.jpg");
+        }
         userMapper.updateUserDetailById(userDetail);
     }
 

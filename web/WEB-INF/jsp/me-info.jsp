@@ -15,7 +15,7 @@
 
 	<div class="info fl" style="margin: 0 433px">
 		<div class="info-left fl">
-			<img class="info-left-img" src="upload/${sessionScope.user.userDetail.headImg}">
+			<img class="info-left-img" src="upload/userHeadImg/${sessionScope.user.userDetail.headImg}">
 		</div>
 		<div class="info-right fl">
 			<div class="info-right-top">个人资料</div>

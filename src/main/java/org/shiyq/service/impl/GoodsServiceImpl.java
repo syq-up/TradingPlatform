@@ -1,5 +1,6 @@
 package org.shiyq.service.impl;
 
+import org.apache.commons.io.FilenameUtils;
 import org.shiyq.dao.GoodsMapper;
 import org.shiyq.pojo.Goods;
 import org.shiyq.pojo.GoodsCollection;
@@ -8,9 +9,13 @@ import org.shiyq.pojo.UserOrder;
 import org.shiyq.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.*;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author shiyq
@@ -61,8 +66,8 @@ public class GoodsServiceImpl implements GoodsService {
      * 保存商品
      * @param goods 商品对象
      */
-    public void saveGoods(Goods goods) {
-        System.out.println(1);
+    public void saveGoods(Goods goods, CommonsMultipartFile[] files, HttpServletRequest request) {
+        goods.setGoodsImg(uploadGoodsImg(files, request));
         goodsMapper.saveGoods(goods);
     }
 
@@ -86,10 +91,9 @@ public class GoodsServiceImpl implements GoodsService {
 
     /**
      * 添加收藏
-     * @param userId    用户id
-     * @param goodsId   商品id
+     * @param hashMap 收藏
      */
-    public int saveCollectionByUserIdAndGoodsId(HashMap hashMap) {
+    public int saveCollectionByUserIdAndGoodsId(HashMap<String, Integer> hashMap) {
         return goodsMapper.saveCollectionByUserIdAndGoodsId(hashMap);
     }
 
@@ -124,6 +128,57 @@ public class GoodsServiceImpl implements GoodsService {
      */
     public void deleteOrderById(int orderId) {
         goodsMapper.deleteOrderById(orderId);
+    }
+
+    /**
+     * 批量上传图片
+     * @param files 文件数组
+     * @param request   请求
+     */
+    private String uploadGoodsImg(CommonsMultipartFile[] files, HttpServletRequest request) {
+
+        //上传路径保存设置，为文件再创建一级目录防止重名
+        String uuidPath = UUID.randomUUID().toString();
+        String path = request.getServletContext().getRealPath("/upload/goodsImg") + "\\" + uuidPath;
+        //如果路径不存在，创建一个
+        File realPath = new File(path);
+        if (!realPath.exists()){
+            realPath.mkdirs();
+        }
+
+        // 重命名图片名。从1开始
+        int i = 1;
+        for (CommonsMultipartFile file : files){
+            //获取文件名 : file.getOriginalFilename(); 获取文件后缀：FilenameUtils.getExtension()
+            //String uploadFileName = i++ + "." + FilenameUtils.getExtension(file.getOriginalFilename());
+            String uploadFileName = i++ + ".jpg";
+
+            InputStream is = null;
+            OutputStream os = null;
+            try {
+                is = file.getInputStream(); //文件输入流
+                os = new FileOutputStream(new File(realPath,uploadFileName)); //文件输出流
+
+                //读取写出
+                int len;
+                byte[] buffer = new byte[1024];
+                while ((len=is.read(buffer))!=-1){
+                    os.write(buffer,0,len);
+                    os.flush();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                try{
+                    if (os!=null) os.close();
+                    if (is!=null) is.close();
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return uuidPath;
     }
 
 }

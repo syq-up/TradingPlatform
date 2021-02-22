@@ -1,6 +1,6 @@
 <%@ page pageEncoding="utf-8" contentType="text/html;charset=utf-8"%>
 
-<!DOCTYPE HTML>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 	<title>我的订单</title>
@@ -48,7 +48,7 @@
 					<div class="content-item-body-item1 fl">
 						<div class="content-item-body-item1-img fl" style="overflow: hidden;">
 							<a href="/TradingPlatform/goods/single/${orderItem.goods.goodsId}">
-								<img width="80" src="upload/${orderItem.goods.goodsImg}">
+								<img width="80" src="upload/goodsImg/${orderItem.goods.goodsImg}/1.jpg">
 							</a>
 						</div>
 						<div class="content-item-body-item1-goodsname fl">

@@ -42,7 +42,7 @@
 
 
 /*个人信息样式*/
-.info{width: 1055px; height: auto; min-height: 790px !important; float: left;}
+.info{width: 1055px; height: auto; min-height: 790px !important;}
 .info-left{width: 125px; height: auto; margin-right: 15px;}
 .info-right{width: 865px; height: auto; margin-right: 50px;}
 

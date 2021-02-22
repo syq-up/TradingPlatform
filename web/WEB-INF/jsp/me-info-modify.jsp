@@ -15,12 +15,12 @@
 
 	<div class="info">
 		<div class="info-left fl">
-			<img class="info-left-img" src="upload/${sessionScope.user.userDetail.headImg}">
+			<img class="info-left-img" src="upload/userHeadImg/${sessionScope.user.userDetail.headImg}">
 		</div>
 		<div class="info-right fl">
 			<div class="info-right-top">个人资料</div>
 
-			<form action="${pageContext.request.contextPath}/user/userUpdate" method="post">
+			<form action="${pageContext.request.contextPath}/user/userUpdate" enctype="multipart/form-data" method="post">
 				<div class="info-right-key">基本信息</div>
 
 				<div class="info-right-value" style="padding-top: 2px;">
@@ -29,7 +29,14 @@
 					<div class="info-right-value-item">
 						<div class="info-right-value-item-key fl">头像：</div>
 						<div class="info-right-value-item-value fl">
-							<input type="file" name="headImg">
+							<input type="file" name="file">
+							<input name="headImg" value="${sessionScope.user.userDetail.headImg}" hidden>
+						</div>
+					</div>
+					<div class="info-right-value-item">
+						<div class="info-right-value-item-key fl">昵称：</div>
+						<div class="info-right-value-item-value fl">
+							<input type="text" pattern="^[a-zA-Z0-9_\u4e00-\u9fa5]{4,20}" name="nickname" value="${sessionScope.user.userDetail.nickname}">
 						</div>
 					</div>
 					<div class="info-right-value-item">

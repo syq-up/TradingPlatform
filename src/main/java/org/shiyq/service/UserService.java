@@ -3,7 +3,9 @@ package org.shiyq.service;
 import org.shiyq.pojo.User;
 import org.shiyq.pojo.UserAddr;
 import org.shiyq.pojo.UserDetail;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -17,20 +19,26 @@ public interface UserService {
      * @param userName：用户名
      * @return 用户对象
      */
-    public User findUserByUserName(String userName);
+    User findUserByUserName(String userName);
+
+    /**
+     * 查找用户对象
+     * @param userId 用户id
+     */
+    void findUserByUserId(Integer userId);
 
     /**
      * 注册用户
      * @param user：用户对象
      */
-    public void saveUser(User user);
+    void saveUser(User user);
 
     /**
      * 获取用户注册时长（天）
      * @param regDate   用户注册时间
      * @return  天
      */
-    public int getAllRegDays(java.sql.Date regDate);
+    int getAllRegDays(java.sql.Date regDate);
 
     /**
      * 查找用户详情对象
@@ -50,6 +58,6 @@ public interface UserService {
      * 更新用户详细信息
      * @param userDetail  用户id
      */
-    void updateUserDetailById(UserDetail userDetail);
+    void updateUserDetail(UserDetail userDetail, CommonsMultipartFile file, HttpServletRequest request);
 
 }

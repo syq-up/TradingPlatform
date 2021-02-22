@@ -44,7 +44,7 @@
 		<div class="goods-detail-top">
 			<div class="goods-detail-top-left fl">
 				<div class="goods-detail-top-left_img fl">
-					<img style="border-radius:50%;" src="images/info/headImg.jpg" width="30" height="30">
+					<img style="border-radius:50%;" src="upload/userHeadImg/${goods.userDetail.headImg}" width="30" height="30">
 				</div>
 				<div class="goods-detail-top-left-name fl">
 					<span class="name">${goods.userDetail.nickname}</span>
@@ -61,7 +61,7 @@
 
 		<div class="goods-detail-left fl">
 			<div class="goods-detail-img fl" style="text-align: center;">
-				<img style="max-width: 690px; max-height: 580px;" src="upload/${goods.goodsImg}"/>
+				<img style="max-width: 690px; max-height: 580px;" src="upload/goodsImg/${goods.goodsImg}/1.jpg"/>
 			</div>
 			<div class="goods-detail-messages fl">
 				<div class="goods-detail-messages-top">留言板</div>

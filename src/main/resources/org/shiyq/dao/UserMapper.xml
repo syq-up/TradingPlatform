@@ -14,6 +14,10 @@
         select * from user where user_name=#{userName}
     </select>
 
+    <select id="findUserByUserId" resultMap="user_uDetail">
+        select * from user where user_id=#{userId}
+    </select>
+
     <insert id="saveUser">
         insert into user (user_name, user_pwd, user_reg)
         values (#{userName}, #{userPwd}, #{userReg})

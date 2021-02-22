@@ -28,7 +28,7 @@
 					<span class="right">|</span>
 				</div>
 				<div class="head-show-single-right-item fl">
-					<a href="/TradingPlatform/"><span class="right">我的商品</span></a>
+					<a href="/TradingPlatform/me-goods/1"><span class="right">我的商品</span></a>
 				</div>
 				<div class="head-show-single-right-item fl">
 					<a href="/TradingPlatform/goods/add"><span class="right">发布商品</span></a>
@@ -45,12 +45,12 @@
 
 	<div class="info">
 		<div class="info-left fl">
-			<img class="info-left-img" src="images/info/headImg.jpg">
+			<img class="info-left-img" src="upload/userHeadImg/${sessionScope.user.userDetail.headImg}">
 		</div>
 		<div class="info-right fl">
 			<div class="info-right-top">发布商品</div>
 
-			<form action="${pageContext.request.contextPath}/goods/save" method="post" >
+			<form action="${pageContext.request.contextPath}/goods/save" enctype="multipart/form-data" method="post" >
 				<div class="info-right-key">编辑商品信息</div>
 
 				<div class="info-right-value" style="padding-top: 2px;height: 450px;">
@@ -68,7 +68,8 @@
 					<div class="info-right-value-item">
 						<div class="info-right-value-item-key fl">图片：</div>
 						<div class="info-right-value-item-value fl">
-							<input type="file" name="goodsImg" accept="image/png, image/jpeg, image/gif" required>
+							<input type="file" name="files" accept="image/png, image/jpeg, image/gif" multiple required>
+							<input name="goodsImg" value="${goods.goodsImg}" hidden>
 						</div>
 					</div>
 					<div class="info-right-value-item">

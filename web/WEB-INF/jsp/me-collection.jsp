@@ -1,6 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ page contentType="text/html;charset=utf-8"%>
-<%--<%@ taglib uri='/struts-tags' prefix='s'%>--%>
+<%@ page pageEncoding="utf-8" contentType="text/html;charset=utf-8"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -35,7 +33,7 @@
 				<div class="content-item-body">
 					<div class="content-item-body-item1 fl">
 						<div class="content-item-body-item1-img fl" style="overflow: hidden;">
-							<a href="/TradingPlatform/goods/single/${collectionItem.goods.goodsId}"><img width="80" src="upload/${collectionItem.goods.goodsImg}"></a>
+							<a href="/TradingPlatform/goods/single/${collectionItem.goods.goodsId}"><img width="80" src="upload/goodsImg/${collectionItem.goods.goodsImg}/1.jpg"></a>
 						</div>
 						<div class="content-item-body-item1-goodsname fl">
 							<a href="/TradingPlatform/goods/single/${collectionItem.goods.goodsId}">${collectionItem.goods.goodsName}</a>
