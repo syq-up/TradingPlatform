@@ -24,7 +24,7 @@
         <property name="dataSource" ref="dataSource"/>
         <!-- 绑定Mybatis的配置文件 -->
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
-        <property name="mapperLocations" value="classpath:org/shiyq/dao/*.xml"/>
+        <property name="mapperLocations" value="classpath:com/shiyq/dao/*.xml"/>
     </bean>
 
     <!-- 配置dao接口扫描包，动态实现Dao接口可以注入到spring容器中 -->
@@ -32,6 +32,6 @@
         <!-- 注入sqlSessionFactory -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!-- 要扫描的dao包 -->
-        <property name="basePackage" value="org.shiyq.dao"/>
+        <property name="basePackage" value="com.shiyq.dao"/>
     </bean>
 </beans>

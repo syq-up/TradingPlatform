@@ -1,20 +1,18 @@
-package org.shiyq.service;
+package com.shiyq.dao;
 
-import org.shiyq.pojo.Goods;
-import org.shiyq.pojo.GoodsCollection;
-import org.shiyq.pojo.GoodsGuestbook;
-import org.shiyq.pojo.UserOrder;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import com.shiyq.pojo.Goods;
+import com.shiyq.pojo.GoodsCollection;
+import com.shiyq.pojo.GoodsGuestbook;
+import com.shiyq.pojo.UserOrder;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 
 /**
  * @author shiyq
- * @create 2021-02-09 17:34
+ * @create 2021-02-09 16:43
  */
-public interface GoodsService {
+public interface GoodsMapper {
 
     /**
      * 查询所有商品
@@ -41,7 +39,7 @@ public interface GoodsService {
      * 保存商品
      * @param goods 商品对象
      */
-    void saveGoods(Goods goods, CommonsMultipartFile[] files, HttpServletRequest request);
+    void saveGoods(Goods goods);
 
     /**
      * 查询用户发布的所有商品

@@ -1,4 +1,4 @@
-package org.shiyq.config;
+package com.shiyq.config;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 

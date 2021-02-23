@@ -1,8 +1,8 @@
-package org.shiyq.service;
+package com.shiyq.service;
 
-import org.shiyq.pojo.User;
-import org.shiyq.pojo.UserAddr;
-import org.shiyq.pojo.UserDetail;
+import com.shiyq.pojo.User;
+import com.shiyq.pojo.UserAddr;
+import com.shiyq.pojo.UserDetail;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;

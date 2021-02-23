@@ -1,4 +1,4 @@
-package org.shiyq.pojo;
+package com.shiyq.pojo;
 
 /**
  * @author shiyq

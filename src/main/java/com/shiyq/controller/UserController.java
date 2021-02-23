@@ -1,9 +1,9 @@
-package org.shiyq.controller;
+package com.shiyq.controller;
 
-import org.shiyq.pojo.User;
-import org.shiyq.pojo.UserAddr;
-import org.shiyq.pojo.UserDetail;
-import org.shiyq.service.UserService;
+import com.shiyq.pojo.User;
+import com.shiyq.pojo.UserAddr;
+import com.shiyq.pojo.UserDetail;
+import com.shiyq.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

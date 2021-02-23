@@ -1,12 +1,11 @@
-package org.shiyq.service.impl;
+package com.shiyq.service.impl;
 
-import org.apache.commons.io.FilenameUtils;
-import org.shiyq.dao.GoodsMapper;
-import org.shiyq.pojo.Goods;
-import org.shiyq.pojo.GoodsCollection;
-import org.shiyq.pojo.GoodsGuestbook;
-import org.shiyq.pojo.UserOrder;
-import org.shiyq.service.GoodsService;
+import com.shiyq.dao.GoodsMapper;
+import com.shiyq.pojo.Goods;
+import com.shiyq.pojo.GoodsCollection;
+import com.shiyq.pojo.GoodsGuestbook;
+import com.shiyq.pojo.UserOrder;
+import com.shiyq.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;

@@ -14,7 +14,7 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- 扫描service包 -->
-    <context:component-scan base-package="org.shiyq.service"/>
+    <context:component-scan base-package="com.shiyq.service"/>
 
     <!-- 声明式事务配置 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -34,7 +34,7 @@
 
     <!-- 配置事务切入 -->
     <aop:config>
-        <aop:pointcut id="txPointCut" expression="execution(* org.shiyq.service.impl.*.*(..))"/>
+        <aop:pointcut id="txPointCut" expression="execution(* com.shiyq.service.impl.*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"/>
     </aop:config>
 

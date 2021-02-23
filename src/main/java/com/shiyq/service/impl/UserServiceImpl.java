@@ -1,10 +1,10 @@
-package org.shiyq.service.impl;
+package com.shiyq.service.impl;
 
-import org.shiyq.dao.UserMapper;
-import org.shiyq.pojo.User;
-import org.shiyq.pojo.UserAddr;
-import org.shiyq.pojo.UserDetail;
-import org.shiyq.service.UserService;
+import com.shiyq.service.UserService;
+import com.shiyq.dao.UserMapper;
+import com.shiyq.pojo.User;
+import com.shiyq.pojo.UserAddr;
+import com.shiyq.pojo.UserDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;

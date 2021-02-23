@@ -1,6 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ page contentType="text/html;charset=utf-8"%>
-<%--<%@ taglib uri='/struts-tags' prefix='s'%>--%>
+<%@ page pageEncoding="utf-8" contentType="text/html;charset=utf-8"%>
 
 <!DOCTYPE HTML>
 <html>
@@ -22,7 +20,7 @@
 			</div>
 			<div class="head-show-single-right fl">
 				<div class="head-show-single-right-item fl">
-					<a href="/TradingPlatform/goods/recent/1"><span class="right">首页</span></a>
+					<a href="/TradingPlatform/all/goods/recent/1"><span class="right">首页</span></a>
 				</div>
 				<div class="head-show-single-right-jianGe fl">
 					<span class="right">|</span>

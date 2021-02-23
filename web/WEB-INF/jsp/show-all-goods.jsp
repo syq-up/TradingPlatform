@@ -1,3 +1,4 @@
+<%@ page import="com.shiyq.pojo.User" %>
 <%@ page pageEncoding="utf-8" contentType="text/html;charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -47,7 +48,7 @@
 						<div class="usercard-info-left">
 							<img style="width: 60px; height: 60px; border-radius:50%;" src="upload/userHeadImg/${sessionScope.user.userDetail.headImg}">
 						</div>
-						<% org.shiyq.pojo.User u =(org.shiyq.pojo.User)session.getAttribute("user");
+						<% User u =(User)session.getAttribute("user");
 							int days = (int)(new java.util.Date().getTime() - u.getUserReg().getTime())/1000/3600/24 + 1;
 						%>
 						<div class="usercard-info-right">

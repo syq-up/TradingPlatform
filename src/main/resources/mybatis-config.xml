@@ -16,7 +16,7 @@
 
     <!-- 别名 -->
     <typeAliases>
-        <package name="org.shiyq.pojo"/>
+        <package name="com.shiyq.pojo"/>
     </typeAliases>
     
     <!-- 插件 -->

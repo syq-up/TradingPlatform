@@ -1,9 +1,9 @@
-package org.shiyq.controller;
+package com.shiyq.controller;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import org.shiyq.pojo.*;
-import org.shiyq.service.GoodsService;
+import com.shiyq.pojo.*;
+import com.shiyq.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
