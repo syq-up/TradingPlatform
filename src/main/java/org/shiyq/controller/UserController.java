@@ -96,7 +96,7 @@ public class UserController {
      * @param model     返回提示信息
      * @return  失败再次返回注册页面，成功则返回登录页面
      */
-    @RequestMapping("/uerRegister")
+    @RequestMapping("/userRegister")
     public String userRegister(@RequestParam("userName")String userName,
                                @RequestParam("userPwd")String userPwd,
                                @RequestParam("rePwd")String rePwd,

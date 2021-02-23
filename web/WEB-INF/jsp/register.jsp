@@ -14,7 +14,7 @@
 	<div class="container">
 		<div class="col-md-12">
 			<h1 class="margin-bottom-15">二手交易平台</h1>
-			<form style="padding-top: 15px;" class="form-horizontal templatemo-container templatemo-login-form-1 margin-bottom-30" action="${pageContext.request.contextPath}/user/uerRegister" method="post">
+			<form style="padding-top: 15px;" class="form-horizontal templatemo-container templatemo-login-form-1 margin-bottom-30" action="${pageContext.request.contextPath}/user/userRegister" method="post">
 				<div class="form-group">
 					<div style="padding-bottom: 10px; font-size: 24px; text-align: center; color: #4aa4b4; border-bottom: 1px solid #eee;" class="col-xs-12">注册</div>
 				</div>
