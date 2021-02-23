@@ -3,6 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.shiyq.dao.GoodsMapper">
+    <!--开启缓存-->
+    <cache
+            eviction="FIFO"
+            flushInterval="60000"
+            size="512"
+            readOnly="true"/>
+
     <resultMap id="goods_uDetail" type="Goods">
         <result property="goodsId" column="goods_id"/>
         <result property="goodsImg" column="goods_img"/>
@@ -18,7 +25,7 @@
         <association property="userDetail" column="user_detail"
                      javaType="UserDetail" select="findUserDetailById"/>
     </resultMap>
-    <select id="findAllGoodsBySort" resultMap="goods_uDetail">
+    <select id="findAllGoodsBySort" resultMap="goods_uDetail" useCache="true">
         select * from goods
         <if test="sort != null">
             where sort=#{sort}
@@ -34,7 +41,7 @@
         select * from goods where goods_id=#{goodsId}
     </select>
 
-    <select id="findAllMsgByGoodsId" resultType="GoodsGuestbook">
+    <select id="findAllMsgByGoodsId" resultType="GoodsGuestbook" useCache="true">
         select * from goods_guestbook where goods_id=#{goodsId}
     </select>
 
@@ -45,7 +52,7 @@
                 #{quality}, #{tradeWay}, #{goodsDetail}, #{sort}, #{lastEditTime}, #{state})
     </insert>
 
-    <select id="findAllMyGoodsByUserId" resultType="Goods">
+    <select id="findAllMyGoodsByUserId" resultType="Goods" useCache="true">
         select * from goods where user_detail=#{userDetail}
     </select>
 
@@ -55,7 +62,7 @@
         <association property="goods" column="goods"
                      javaType="Goods" select="findSingleGoodsById"/>
     </resultMap>
-    <select id="findAllMyCollectionByUserId" resultMap="goods_collection">
+    <select id="findAllMyCollectionByUserId" resultMap="goods_collection" useCache="true">
         select * from goods_collection where user_id=#{userId}
     </select>
 
@@ -75,7 +82,7 @@
         <association property="goods" column="goods"
                      javaType="Goods" select="findSingleGoodsById"/>
     </resultMap>
-    <select id="findAllMyOrderByUserId" resultMap="goods_order">
+    <select id="findAllMyOrderByUserId" resultMap="goods_order" useCache="true">
         select * from user_order where user_id=#{userId}
     </select>
 
